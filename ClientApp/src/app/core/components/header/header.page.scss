@@ -1,0 +1,107 @@
+mat-toolbar {
+  width: 100%;
+  background: var(--main-color);
+  padding-left: 70px;
+  height: 65px;
+  position: fixed;
+  z-index: 3;
+  .page-title {
+    width: 100%;
+    text-align: center;
+    padding-left: 196.2px;
+    h1 {
+      color: #fff;
+    }
+  }
+  mat-icon,
+  span {
+    color: #fff;
+  }
+  .logo {
+    margin-left: 20px;
+    img {
+      height: 35px;
+      object-fit: cover;
+    }
+  }
+  button {
+    transition: 0.3s;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #fff;
+    &:hover {
+      color: var(--main-color-darker);
+      mat-icon,
+      span {
+        transition: 0.3s;
+        color: var(--main-color-darker);
+      }
+    }
+  }
+  ::ng-deep {
+    .mat-icon-button {
+      width: 70px;
+    }
+    .name {
+      width: 100px;
+    }
+  }
+}
+
+.full-width {
+  padding-left: 10px;
+  .sidenav-content {
+    visibility: hidden;
+    height: 100vh;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    position: absolute;
+    .sidenav {
+      padding: 20px;
+      background: #fff;
+      margin: 0;
+      width: 100%;
+      .mat-tree-node {
+        transition: 0.3s;
+        .mat-icon,
+        .icon {
+          color: var(--default-dark);
+        }
+        label {
+          margin-left: 10px;
+        }
+        .font-awesome-icon {
+          width: 25px;
+          height: 24px;
+          text-align: center;
+          font-size: 16px;
+        }
+        &:hover {
+          .icon,
+          .mat-icon,
+          label {
+            color: var(--main-color);
+          }
+          transition: 0.3s;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  mat-toolbar {
+    .page-title {
+      width: unset;
+      padding-left: unset;
+      flex: 1 1 auto;
+      h1 {
+        display: none;
+      }
+    }
+    .logo {
+      margin-left: 0;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+@import "../../../../styles/list.scss";
+
+.page-container {
+  .content {
+    table {
+      td {
+        i {
+          color: var(--blue);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  mat-slide-toggle{
+    margin-bottom: 20px;
+    padding-right: 15px;
+  }
+}

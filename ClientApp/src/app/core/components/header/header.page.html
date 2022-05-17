@@ -1,0 +1,50 @@
+<mat-toolbar [ngClass]="{'full-width': isMobile}">
+  <button (click)="drawer.toggle()" *ngIf="isMobile" mat-icon-button class="icon"
+    aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-drawer-container class="sidenav-content" autosize>
+    <mat-drawer #drawer class="sidenav" mode="side">
+      <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" *ngIf="isMobile">
+        <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding (click)="onClickNode(node); drawer.toggle()">
+          <mat-icon *ngIf="node.iconData?.type == IconType.Material" aria-hidden="false" aria-label="Example home icon"
+            class="icon">{{node.iconData?.icon}}</mat-icon>
+          <i *ngIf="node.iconData?.type != IconType.Material" class="icon font-awesome-icon"
+            [ngClass]="node.iconData?.icon"></i>
+          <label>
+            {{node.name}}
+          </label>
+        </mat-tree-node>
+        <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding (click)="treeControl.toggle(node)">
+          <mat-icon *ngIf="node.iconData?.type == IconType.Material" aria-hidden="false" aria-label="Example home icon"
+            class="icon">{{node.iconData?.icon}}</mat-icon>
+          <i *ngIf="node.iconData?.type != IconType.Material" class="icon font-awesome-icon"
+            [ngClass]="node.iconData?.icon"></i>
+          <label>
+            {{node.name}}
+          </label>
+          <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
+            <mat-icon class="mat-icon-rtl-mirror">
+              {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+            </mat-icon>
+          </button>
+        </mat-tree-node>
+      </mat-tree>
+    </mat-drawer>
+  </mat-drawer-container>
+  <div class="logo">
+    <img src="../../../../assets/images/png/logo-white.png" [routerLink]="['/home']" />
+  </div>
+  <span class="page-title">
+    <h1>{{pageTitle}}</h1>
+  </span>
+  <button mat-icon-button aria-label="Example icon-button with share icon" *ngIf="!isMobile">
+    <mat-icon>person</mat-icon>
+  </button>
+  <button mat-icon-button class="name" *ngIf="!isMobile">
+    <span>Olá {{userName ? userName : ''}}</span>
+  </button>
+  <button mat-icon-button (click)="logout()">
+    <span>Sair</span>
+  </button>
+</mat-toolbar>

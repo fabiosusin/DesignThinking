@@ -1,0 +1,90 @@
+@import "../../../../styles/edit.scss";
+
+.dialog-container {
+  max-height: calc(100vh - 100px);
+  .dialog-content {
+    .title {
+      grid-column: 1 / -1;
+      border-bottom: 1px solid #b8b8b8;
+      font-size: 15px;
+      margin: 10px 0;
+    }
+    .bg-buttons {
+      width: 100%;
+    }
+  }
+  .permissions {
+    h1 {
+      margin: 10px 0;
+    }
+    .accordion {
+      &:first-child {
+        .accordion-item {
+          .accordion-item-header {
+            margin-top: 0;
+          }
+        }
+      }
+      .accordion-item {
+        border: none;
+        .accordion-item-header {
+          display: flex;
+          justify-content: space-between;
+          border: 1px solid var(--default-border-color);
+          border-radius: 5px;
+          margin-top: 25px;
+          margin-bottom: -5px;
+          height: 50px;
+          background: #eee;
+          div {
+            margin: 0;
+            color: var(--main-color);
+            i {
+              margin: 8px;
+              font-size: 20px;
+            }
+            mat-icon {
+              margin: 6px;
+              font-size: 25px;
+            }
+            h2 {
+              margin: 0;
+              color: var(--main-color);
+            }
+          }
+          span {
+            font-size: 20px;
+            margin: 10px;
+            color: var(--main-color);
+          }
+        }
+        .accordion-item-body {
+          font-size: 20px;
+          border: 1px solid var(--default-border-color);
+          border-top: unset;
+          background: #f9f9f9;
+          .category {
+            justify-content: space-between;
+            padding: 10px;
+            .name {
+              font-size: 16px;
+              label {
+                color: var(--main-color);
+              }
+            }
+          }
+          &:last-child {
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 570px) {
+  .default-form-field {
+    grid-column: 1 / -1;
+  }
+}

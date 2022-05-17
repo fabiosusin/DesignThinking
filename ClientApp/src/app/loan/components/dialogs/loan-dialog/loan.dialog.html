@@ -1,0 +1,57 @@
+<app-loading *ngIf="isLoading"></app-loading>
+<ng-container *ngIf="form" [formGroup]="form">
+  <div mat-dialog-content class="dialog-content grid-2-cl">
+    <mat-form-field class="default-form-field" appearance="fill">
+      <mat-label>Funcionário</mat-label>
+      <input type="text" matInput [matAutocomplete]="employee" formControlName="employeeName">
+      <mat-error *ngIf="!form?.get('employeeName')?.valid">Informe o Aliado</mat-error>
+      <mat-autocomplete autoActiveFirstOption #employee="matAutocomplete">
+        <mat-option *ngFor="let employee of observableEmployee | async" [value]="employee">
+          {{employee}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <mat-form-field class="default-form-field" appearance="fill">
+      <mat-label>Data de Empréstimo</mat-label>
+      <input matInput [ngxMatDatetimePicker]="picker" formControlName="loanDate" required>
+      <mat-datepicker-toggle matSuffix [for]="$any(picker)"></mat-datepicker-toggle>
+      <ngx-mat-datetime-picker #picker>
+      </ngx-mat-datetime-picker>
+    </mat-form-field>
+    <mat-form-field class="default-form-field" appearance="fill">
+      <mat-label>Equipamentos</mat-label>
+      <input type="text" matInput [matAutocomplete]="equipment" formControlName="equipments"
+        [(ngModel)]="currentEquipment">
+      <mat-autocomplete autoActiveFirstOption #equipment="matAutocomplete">
+        <mat-option *ngFor="let equipment of observableEquipments | async" [value]="equipment">
+          {{equipment}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <div class="bg-add-bt">
+      <button class="add-new-btn flex-center" (click)="onClickAddEquipment()">
+        <i class="fas fa-plus"></i>
+      </button>
+    </div>
+  </div>
+  <div class="equipments-area" *ngIf="selectedEquipments?.length">
+    <h2>Equipamentos</h2>
+    <div class="line flex-between equipment-line" *ngFor="let item of selectedEquipments; let i = index">
+      <span class="title">{{item.name}}</span>
+      <div class="bg-images flex-between">
+        <div *ngFor="let item of item?.images | slice:0:3;" class="image-list flex-center">
+          <img src="{{item.jpeg?.url64}}">
+        </div>
+      </div>
+      <div class="bg-button flex-center">
+        <button class="remove-btn" (click)="removeEquipment(item.id)">
+          <i class="far fa-trash-alt"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div mat-dialog-actions class="bg-buttons flex-end" *ngIf="data">
+    <button class="close-button" mat-button (click)="closeDialog()">Sair</button>
+    <button class="save-button" mat-button cdkFocusInitial (click)="onSubmit(form.value)">Salvar</button>
+  </div>
+</ng-container>

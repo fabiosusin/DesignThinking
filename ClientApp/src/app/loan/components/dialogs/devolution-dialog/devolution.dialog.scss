@@ -1,0 +1,52 @@
+@import "../../../../../styles/edit.scss";
+
+.dialog-content {
+  mat-form-field {
+    margin-bottom: 20px;
+  }
+  .title {
+    grid-column: 1 / -1;
+    border-bottom: 1px solid #b8b8b8;
+    font-size: 15px;
+    margin: 10px 0;
+  }
+  .bg-buttons {
+    width: 100%;
+  }
+  .bg-add-bt {
+    margin-top: 10px;
+    button {
+      height: 40px;
+      width: 40px;
+    }
+  }
+  .blocked-field{
+    pointer-events: none;
+  }
+ .devolution-placeholder{
+  position: absolute;
+  font-size: 11px;
+  padding: 7px;
+ }
+}
+.equipments-area {
+  grid-column: 1 / -1;
+  h2 {
+    margin-bottom: 0;
+  }
+  .line {
+    width: 100%;
+    margin-bottom: 5px;
+    font-size: 13px;
+    padding: 5px 0;
+    mat-form-field {
+      width: 100%;
+      margin-bottom: -10px;
+    }
+  }
+}
+@media only screen and (max-width: 570px) {
+  .default-form-field {
+    grid-column: 1 / -1;
+  }
+}

@@ -1,0 +1,7 @@
+<body>
+  <app-header-page [pageTitle]="pageTitle ?? ''"></app-header-page>
+  <app-sidebar-page *ngIf="!isMobile"></app-sidebar-page>
+  <div class="first-div">
+    <router-outlet></router-outlet>
+  </div>
+</body>

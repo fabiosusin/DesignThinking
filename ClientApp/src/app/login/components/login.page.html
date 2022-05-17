@@ -1,0 +1,24 @@
+<app-loading *ngIf="isLoading"></app-loading>
+<div class="page-container flex-center">
+  <div class="form" *ngIf="form">
+    <div class="logo">
+      <img src="../../../assets/images/png/logo-inline.png" />
+    </div>
+    <div class="data" [formGroup]="form" (keyup.enter)="onSubmit(form.value)">
+      <label>Acesso ao Intra</label>
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" placeholder="xplay@Intra.com" formControlName="email" required>
+        <mat-error *ngIf="!form?.get('email')?.valid">Informe o Email</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Senha</mat-label>
+        <input matInput type="password" formControlName="password" required>
+        <mat-error *ngIf="!form?.get('password')?.valid">Informe a Senha</mat-error>
+      </mat-form-field>
+      <div class="resend-password flex-end"><a (click)="sendTempPassword()">Esqueceu sua Senha?</a></div>
+      <button mat-raised-button class="default-button" (click)="onSubmit(form.value)">Acessar</button>
+    </div>
+    <div class="version"><span>Versão 1.0.0</span></div>
+  </div>
+</div>

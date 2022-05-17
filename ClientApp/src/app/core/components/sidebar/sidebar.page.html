@@ -1,0 +1,27 @@
+<div #bgSideMenu class="bgSideMenu" (click)="openMenu()" (mouseenter)="hoveredMenu()" (mouseleave)="closeAllMenus()">
+  <mat-drawer opened class="bgPrincipalMenu" mode="side" *ngIf="dataSource">
+    <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+      <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding (click)="onClickNode(node)">
+        <mat-icon *ngIf="node.iconData?.type == IconType.Material" aria-hidden="false" aria-label="Example home icon"
+          class="icon">{{node.iconData?.icon}}</mat-icon>
+        <i *ngIf="node.iconData?.type != IconType.Material" class="icon font-awesome-icon" [ngClass]="node.iconData?.icon"></i>
+        <label *ngIf="showFullDrawer">
+          {{node.name}}
+        </label>
+      </mat-tree-node>
+      <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding (click)="treeControl.toggle(node)">
+        <mat-icon *ngIf="node.iconData?.type == IconType.Material" aria-hidden="false" aria-label="Example home icon"
+          class="icon">{{node.iconData?.icon}}</mat-icon>
+        <i *ngIf="node.iconData?.type != IconType.Material" class="icon font-awesome-icon" [ngClass]="node.iconData?.icon"></i>
+        <label *ngIf="showFullDrawer">
+          {{ node.name}}
+        </label>
+        <button mat-icon-button  [attr.aria-label]="'Toggle ' + node.name" *ngIf="showFullDrawer">
+          <mat-icon class="mat-icon-rtl-mirror">
+            {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+          </mat-icon>
+        </button>
+      </mat-tree-node>
+    </mat-tree>
+  </mat-drawer>
+</div>

@@ -1,0 +1,14 @@
+@import "../../../../styles/list.scss";
+
+.page-container {
+  .content {
+    table {
+      td {
+        i {
+          color: var(--main-color-very-light);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

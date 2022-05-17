@@ -1,0 +1,35 @@
+<app-loading *ngIf="isLoading"></app-loading>
+<ng-container *ngIf="form" [formGroup]="form">
+  <div class="dialog-container">
+    <div mat-dialog-content class="dialog-content grid-3-cl">
+      <mat-form-field class="default-form-field" appearance="fill">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username" required>
+        <mat-error *ngIf="!form?.get('username')?.valid">Informe o Username</mat-error>
+      </mat-form-field>
+      <mat-form-field class="default-form-field" appearance="fill">
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName="name" required>
+        <mat-error *ngIf="!form?.get('name')?.valid">Informe o Nome do Usuário</mat-error>
+      </mat-form-field>
+      <mat-form-field class="default-form-field" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" required>
+        <mat-error *ngIf="!form?.get('email')?.valid">Informe o Email</mat-error>
+      </mat-form-field>
+      <mat-form-field class="default-form-field" appearance="fill">
+        <mat-label>Senha</mat-label>
+        <input matInput formControlName="password" type="password">
+      </mat-form-field>
+      <mat-form-field class="default-form-field" appearance="fill" *ngIf="form?.get('password')?.value?.length">
+        <mat-label>Validação de Senha</mat-label>
+        <input matInput formControlName="passwordValidation" type="password">
+        <mat-error *ngIf="!form?.get('passwordValidation')?.valid">Informe a Validação de Senha</mat-error>
+      </mat-form-field>
+    </div>
+    <div mat-dialog-actions class="bg-buttons flex-end" *ngIf="data">
+      <button class="close-button" mat-button (click)="closeDialog()">Sair</button>
+      <button class="save-button" mat-button cdkFocusInitial (click)="onSubmit(form.value)">Salvar</button>
+    </div>
+  </div>
+</ng-container>

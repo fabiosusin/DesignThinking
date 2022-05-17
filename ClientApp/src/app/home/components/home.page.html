@@ -1,0 +1,42 @@
+<app-loading *ngIf="isLoading"></app-loading>
+<div class="page-container flex-center">
+  <div class="header flex-between" *ngIf="data">
+    <div class="data employees flex-between" *ngIf="data.employee">
+      <div class="icon flex-center">
+        <i class="fas fa-user"></i>
+      </div>
+      <div class="info flex-center">
+        <h2 class="first-line">{{data.employee.quantity}}</h2>
+        <h4 class="second-line">FUNCIONÁRIOS</h4>
+      </div>
+    </div>
+    <div class="data equipments flex-between" *ngIf="data.equipment">
+      <div class="icon flex-center">
+        <i class="fas fa-tools"></i>
+      </div>
+      <div class="info flex-center">
+        <h2 class="first-line">{{data.equipment.quantity}}</h2>
+        <h4 class="second-line">EQUIPAMENTOS</h4>
+      </div>
+    </div>
+    <div class="data equipmentsLoaneds flex-between" *ngIf="data.equipmentsLoaned">
+      <div class="icon flex-center">
+        <i class="fas fa-tools"></i>
+      </div>
+      <div class="info flex-center">
+        <h2 class="first-line">{{data.equipmentsLoaned.quantity}}</h2>
+        <h4 class="second-line">EQUIPAMENTOS EMPRESTADOS</h4>
+      </div>
+    </div>
+    <div class="data hours flex-between" *ngIf="data.date">
+      <div class="icon flex-center">
+        <h2 class="first-line">{{data.date.month}}</h2>
+        <h4 class="second-line">{{data.date.day}}</h4>
+      </div>
+      <div class="info flex-center">
+        <h2 class="first-line">{{data.date.weekDayName}}</h2>
+        <h4 class="second-line">{{data.date.hour}}</h4>
+      </div>
+    </div>
+  </div>
+</div>

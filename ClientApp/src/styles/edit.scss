@@ -1,0 +1,24 @@
+.dialog-content {
+  display: grid;
+  .title {
+    width: 100%;
+    border-bottom: 1px solid #b8b8b8;
+    font-size: 15px;
+    margin: 10px 0;
+  }
+}
+::ng-deep {
+  .mat-dialog-content {
+    display: unset;
+  }
+  .mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: #eee;
+  }
+  .mat-form-field.mat-focused .mat-form-field-label {
+    color: var(--text-main-color) !important;
+  }
+  .mat-form-field-ripple {
+    /*change color of underline when focused*/
+    background-color: var(--main-color) !important;
+  }
+}

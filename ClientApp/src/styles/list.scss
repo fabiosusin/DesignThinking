@@ -1,0 +1,222 @@
+.page-container {
+  .content {
+    width: 100%;
+    .bg-table {
+      overflow: auto;
+      left: 0;
+      width: 100%;
+      table {
+        width: 95%;
+        margin-bottom: 20px;
+        th.mat-header-cell,
+        td {
+          padding: 0 10px;
+          i {
+            color: var(--main-color-very-light);
+            cursor: pointer;
+          }
+          &:first-child {
+            padding-left: 24px;
+          }
+        }
+      }
+      mat-paginator {
+        width: 95%;
+        margin-top: -20px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+  .bg-new {
+    width: 100%;
+    padding-right: 40px;
+    margin-bottom: 10px;
+  }
+  .filters {
+    width: calc(100% + 150px);
+    margin: 65px 0 20px 0;
+    .accordion {
+      display: block;
+      width: 100%;
+      .accordion-item {
+        display: block;
+        border: none;
+        border-bottom: solid 1px var(--page-title-border-color);
+        padding: 16px;
+        + .accordion-item {
+          border-top: none;
+        }
+        .accordion-item-header {
+          display: flex;
+          align-content: center;
+          justify-content: space-between;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+        .header-filters {
+          color: var(--text-main-color);
+          i {
+            font-size: 20px;
+            margin-right: 10px;
+          }
+          h1 {
+            margin: 0;
+          }
+        }
+        .accordion-item-body {
+          padding-top: 20px;
+          .inputs {
+            .date-period {
+              width: 283px;
+              margin-right: 20px;
+              .mat-form-field {
+                width: 110px;
+                ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+                  width: 205px;
+                }
+                &:last-child {
+                  margin-left: 20px;
+                  margin-right: 0;
+                }
+              }
+            }
+            .mat-form-field {
+              width: 205px;
+              margin-right: 20px;
+            }
+            .bt-search {
+              width: 100%;
+            }
+          }
+        }
+        &:first-child {
+          border-top-left-radius: 0;
+          border-top-right-radius: 0;
+        }
+        &:last-child {
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+      }
+    }
+  }
+}
+
+tr.detail-row {
+  height: 0;
+}
+
+.element-row {
+  td {
+    border-bottom-width: 0;
+    i {
+      color: var(--main-color-very-light);
+      cursor: pointer;
+    }
+  }
+
+  tr.element-row:not(.expanded-row):hover {
+    background: whitesmoke;
+  }
+
+  tr.element-row:not(.expanded-row):active {
+    background: #efefef;
+  }
+}
+
+.element-detail {
+  overflow: hidden;
+  display: flex;
+  .info {
+    width: 50%;
+    max-height: 375px;
+    overflow: auto;
+    margin-bottom: 20px;
+    h1 {
+      width: 100%;
+      margin: 0;
+      margin-top: 10px;
+    }
+    .element-diagram {
+      width: 100%;
+      margin: 8px 0;
+      .element {
+        width: 200px;
+        a {
+          cursor: pointer;
+          font-size: 20px;
+          color: var(--green);
+        }
+        .view {
+          color: var(--blue);
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  .page-container {
+    .bg-new {
+      padding-right: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .content {
+      overflow: auto;
+      position: relative;
+      height: calc(100vh - 200px);
+      .bg-table {
+        justify-content: flex-start;
+        margin-top: 50px;
+        table {
+          min-width: 700px;
+        }
+      }
+    }
+    .filters {
+      width: calc(100% + 20px);
+      margin-left: -10px;
+      margin-right: -10px;
+    }
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  .page-container .filters .accordion .accordion-item .accordion-item-body .inputs {
+    .date-period,
+    .mat-form-field {
+      width: 45%;
+    }
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .page-container .filters .accordion .accordion-item .accordion-item-body .inputs .date-period {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .page-container .filters .accordion .accordion-item .accordion-item-body .inputs {
+    .date-period,
+    .mat-form-field {
+      width: 100%;
+      margin: 0;
+    }
+    .date-period {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .mat-form-field {
+        width: 40%;
+        margin-left: 0 !important;
+      }
+    }
+    button {
+      width: 100%;
+    }
+  }
+}
