@@ -8,9 +8,7 @@ const routes: Routes = [
   { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomePageModule), canActivate: [AuthGuard] },
   { path: 'users', loadChildren: () => import('./user/user.module').then(m => m.UserPageModule), canActivate: [AuthGuard] },
   { path: 'employee', loadChildren: () => import('./employees/employee.module').then(m => m.EmployeePageModule), canActivate: [AuthGuard] },
-  { path: 'equipments', loadChildren: () => import('./equipment/equipment.module').then(m => m.EquipmentPageModule), canActivate: [AuthGuard] },
-  { path: 'users', loadChildren: () => import('./user/user.module').then(m => m.UserPageModule), canActivate: [AuthGuard] },
-  { path: 'loans', loadChildren: () => import('./loan/loan.module').then(m => m.CustomerPageModule), canActivate: [AuthGuard] }
+  { path: 'users', loadChildren: () => import('./user/user.module').then(m => m.UserPageModule), canActivate: [AuthGuard] }
 ];
 
 @NgModule({

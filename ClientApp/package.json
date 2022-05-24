@@ -4,9 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
-    "prod": "npm run build --prod",
-    "prod-sagu": "ng build --configuration=prod.sagu"
+    "build": "ng build"
   },
   "private": true,
   "dependencies": {
