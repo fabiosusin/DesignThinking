@@ -35,7 +35,7 @@ export class EmployeePage implements OnInit {
   name?: string;
 
   ngOnInit(): void {
-    this.pageTitleService.changePageTitle('Funcionários');
+    this.pageTitleService.changePageTitle('Jogadores');
     this.getData();
     this.assignForm();
   }

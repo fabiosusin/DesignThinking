@@ -4,6 +4,6 @@ import { Environment } from 'src/app/core/models/enum/environment.enum';
 export const environment = {
   production: false,
   name: Environment.dev,
-  apiBaseUrl: 'http://10.0.0.32:80/v1/',
-  apiUrl: 'http://10.0.0.32:80/v1/Intra/'
+  apiBaseUrl: 'http://10.20.9.183:44363/v1/',
+  apiUrl: 'http://10.20.9.183:44363/v1/Intra/'
 };

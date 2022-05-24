@@ -42,16 +42,16 @@ export class EmployeeDialog implements OnInit {
 
       const result = await this.employeeService.upsert(item);
       if (!result?.success) {
-        this.providerService.toast.warningMessage(result?.message ?? 'Ocorreu um erro ao tentar salvar o Funcionário!')
+        this.providerService.toast.warningMessage(result?.message ?? 'Ocorreu um erro ao tentar salvar o Jogadore!')
         return;
       }
 
-      this.providerService.toast.successMessage(result.message ?? 'Funcionário salvo com sucesso!')
+      this.providerService.toast.successMessage(result.message ?? 'Jogadore salvo com sucesso!')
       this.closeDialog();
     }
     catch (e) {
       console.error('e => ', e)
-      this.providerService.toast.errorMessage('Ocorreu um erro ao tentar salvar o Funcionário!')
+      this.providerService.toast.errorMessage('Ocorreu um erro ao tentar salvar o Jogadore!')
     }
     finally {
       this.isLoading = false;

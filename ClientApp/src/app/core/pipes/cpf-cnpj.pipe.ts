@@ -8,7 +8,7 @@ export class CpfCnpjPipe implements PipeTransform {
   transform(value: any): any {
     if (!value) return;
 
-    let pattern = value.length <= 11 ? '###.###.###-##' : '##.###.###/####-##'
+    let pattern = '###.###.###-##'
     let i = 0;
     return pattern.replace(/#/g, _ => value[i] ? value[i++] : '');
   }
