@@ -1,0 +1,60 @@
+.page-container {
+  position: relative;
+  padding-top: 85px;
+  height: 100vh;
+  overflow: hidden;
+  .content {
+    width: 710px;
+    max-height: calc(100vh - 10px);
+    overflow: auto;
+    .players {
+      * {
+        margin: 0 5px;
+      }
+    }
+    .bg-court {
+      position: relative;
+      height: 398px;
+      margin: 5px 0;
+      .left-side,
+      .right-side {
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        .square {
+          cursor: pointer;
+          height: 50%;
+          width: 33%;
+          background: #51ae2e73;
+          border: 1px solid #7d7d7d;
+        }
+      }
+      .left-side {
+        left: 0;
+      }
+      .right-side {
+        right: 0;
+      }
+    }
+    .scoreboard {
+      width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+      .set {
+        width: 18%;
+        border: 2px solid #676767;
+        border-radius: 10px;
+        padding: 0 10px;
+        .title {
+          border-bottom: 2px solid #4c4c4c;
+          h1 {
+            margin-bottom: 10px;
+          }
+        }
+        .score {
+          margin: 5px;
+        }
+      }
+    }
+  }
+}
