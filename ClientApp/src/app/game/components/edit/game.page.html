@@ -1,0 +1,64 @@
+<app-loading *ngIf="isLoading"></app-loading>
+<div class="page-container flex-center" *ngIf="form" [formGroup]="form">
+  <div class="content">
+    <div class="players flex-center">
+      <mat-form-field class="default-form-field" appearance="fill">
+        <mat-label>Jogador Um</mat-label>
+        <input type="text" aria-label="Number" matInput [matAutocomplete]="player" formControlName="playerOneName"
+          required>
+        <mat-autocomplete autoActiveFirstOption #player="matAutocomplete">
+          <mat-option *ngFor="let optionPlayer of observablePlayerOne | async" [value]="optionPlayer">
+            {{optionPlayer}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <span>X</span>
+
+      <mat-form-field class="default-form-field" appearance="fill">
+        <mat-label>Jogador Dois</mat-label>
+        <input type="text" aria-label="Number" matInput [matAutocomplete]="playerTwo" formControlName="playerTwoName"
+          required>
+        <mat-autocomplete autoActiveFirstOption #playerTwo="matAutocomplete">
+          <mat-option *ngFor="let optionPlayer of observablePlayerTwo | async" [value]="optionPlayer">
+            {{optionPlayer}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+    <div class="bg-court">
+      <div class="left-side flex-center">
+        <div class="square" (click)="onClickPoint(0)"></div>
+        <div class="square" (click)="onClickPoint(0)"></div>
+        <div class="square" (click)="onClickPoint(0)"></div>
+        <div class="square" (click)="onClickPoint(0)"></div>
+        <div class="square" (click)="onClickPoint(0)"></div>
+        <div class="square" (click)="onClickPoint(0)"></div>
+      </div>
+      <div class="right-side flex-center">
+        <div class="square" (click)="onClickPoint(1)"></div>
+        <div class="square" (click)="onClickPoint(1)"></div>
+        <div class="square" (click)="onClickPoint(1)"></div>
+        <div class="square" (click)="onClickPoint(1)"></div>
+        <div class="square" (click)="onClickPoint(1)"></div>
+        <div class="square" (click)="onClickPoint(1)"></div>
+      </div>
+      <img src="../../../../assets/images/png/court.png" />
+    </div>
+    <div class="scoreboard flex-between">
+      <div class="set" *ngFor="let item of allSets">
+        <div class="title flex-center">
+          <h1>{{item.setNumber}}º Set</h1>
+        </div>
+        <div class="score flex-between">
+          <span class="points">{{item.playerOnePoints}}</span>
+          <span>X</span>
+          <span class="points">{{item.playerTwoPoints}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="bts">
+      <button class="save-button" mat-button cdkFocusInitial (click)="onSubmit()">Finalizar Jogo</button>
+    </div>
+  </div>
+</div>
