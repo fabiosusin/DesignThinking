@@ -1,5 +1,9 @@
 <app-loading *ngIf="isLoading"></app-loading>
 <div class="page-container flex-center" *ngIf="form" [formGroup]="form">
+  <div class="icon-back flex-center" [routerLink]="['/games']">
+    <a><i class="fas fa-arrow-left"></i></a>
+    <label>Voltar</label>
+  </div>
   <div class="content">
     <div class="players flex-center">
       <mat-form-field class="default-form-field" appearance="fill">
@@ -28,22 +32,32 @@
     </div>
     <div class="bg-court">
       <div class="left-side flex-center">
-        <div class="square" (click)="onClickPoint(0)"></div>
-        <div class="square" (click)="onClickPoint(0)"></div>
-        <div class="square" (click)="onClickPoint(0)"></div>
-        <div class="square" (click)="onClickPoint(0)"></div>
-        <div class="square" (click)="onClickPoint(0)"></div>
-        <div class="square" (click)="onClickPoint(0)"></div>
+        <div class="square flex-center" (click)="onClickPoint(1, 1)"><label>{{currentSet?.playerTwo?.shotChart?.first}}</label></div>
+        <div class="square flex-center" (click)="onClickPoint(1, 2)"><label>{{currentSet?.playerTwo?.shotChart?.second}}</label></div>
+        <div class="square flex-center" (click)="onClickPoint(1, 3)"><label>{{currentSet?.playerTwo?.shotChart?.third}}</label></div>
+        <div class="square flex-center" (click)="onClickPoint(1, 4)"><label>{{currentSet?.playerTwo?.shotChart?.fourth}}</label></div>
+        <div class="square flex-center" (click)="onClickPoint(1, 5)"><label>{{currentSet?.playerTwo?.shotChart?.fifth}}</label></div>
+        <div class="square flex-center" (click)="onClickPoint(1, 6)"><label>{{currentSet?.playerTwo?.shotChart?.sixth}}</label></div>
       </div>
       <div class="right-side flex-center">
-        <div class="square" (click)="onClickPoint(1)"></div>
-        <div class="square" (click)="onClickPoint(1)"></div>
-        <div class="square" (click)="onClickPoint(1)"></div>
-        <div class="square" (click)="onClickPoint(1)"></div>
-        <div class="square" (click)="onClickPoint(1)"></div>
-        <div class="square" (click)="onClickPoint(1)"></div>
+        <div class="square flex-center" (click)="onClickPoint(0, 1)"><label>{{currentSet?.playerOne?.shotChart?.first}}</label></div>
+        <div class="square flex-center" (click)="onClickPoint(0, 2)"><label>{{currentSet?.playerOne?.shotChart?.second}}</label></div>
+        <div class="square flex-center" (click)="onClickPoint(0, 3)"><label>{{currentSet?.playerOne?.shotChart?.third}}</label></div>
+        <div class="square flex-center" (click)="onClickPoint(0, 4)"><label>{{currentSet?.playerOne?.shotChart?.fourth}}</label></div>
+        <div class="square flex-center" (click)="onClickPoint(0, 5)"><label>{{currentSet?.playerOne?.shotChart?.fifth}}</label></div>
+        <div class="square flex-center" (click)="onClickPoint(0, 6)"><label>{{currentSet?.playerOne?.shotChart?.sixth}}</label></div>
       </div>
       <img src="../../../../assets/images/png/court.png" />
+    </div>
+    <div class="bg-bts flex-between">
+      <div class="left-side flex-between">
+        <button class="close-button" mat-button (click)="onClickPoint(1, 7)">Cometeu um Erro</button>
+        <label>Erros: {{currentSet?.playerOne?.shotChart?.errors}}</label>
+      </div>
+      <div class="right-side flex-between">
+        <label>Erros: {{currentSet?.playerTwo?.shotChart?.errors}}</label>
+        <button class="close-button" mat-button (click)="onClickPoint(0, 7)">Cometeu um Erro</button>
+      </div>
     </div>
     <div class="scoreboard flex-between">
       <div class="set" *ngFor="let item of allSets">
@@ -51,9 +65,9 @@
           <h1>{{item.setNumber}}º Set</h1>
         </div>
         <div class="score flex-between">
-          <span class="points">{{item.playerOnePoints}}</span>
+          <span class="points">{{item.playerOne?.points}}</span>
           <span>X</span>
-          <span class="points">{{item.playerTwoPoints}}</span>
+          <span class="points">{{item.playerTwo?.points}}</span>
         </div>
       </div>
     </div>

@@ -3,6 +3,28 @@
   padding-top: 85px;
   height: 100vh;
   overflow: hidden;
+  .icon-back {
+    position: absolute;
+    top: 80px;
+    left: 25px;
+    height: 45px;
+    width: 80px;
+    justify-content: left;
+    color: var(--text-main-color);
+    cursor: pointer;
+    label {
+      cursor: pointer;
+      font-size: 15px;
+      margin-left: 5px;
+      z-index: 1;
+    }
+    &:hover {
+      a,
+      label {
+        color: var(--text-main-color-darker);
+      }
+    }
+  }
   .content {
     width: 710px;
     max-height: calc(100vh - 10px);
@@ -27,6 +49,12 @@
           width: 33%;
           background: #51ae2e73;
           border: 1px solid #7d7d7d;
+          label {
+            cursor: pointer;
+            color: #fff;
+            font-size: 70px;
+            font-weight: 400;
+          }
         }
       }
       .left-side {
@@ -34,6 +62,15 @@
       }
       .right-side {
         right: 0;
+      }
+    }
+    .bg-bts {
+      width: 100%;
+      margin-bottom: 10px;
+      .left-side,
+      .right-side {
+        width: 50%;
+        padding: 0 10px;
       }
     }
     .scoreboard {

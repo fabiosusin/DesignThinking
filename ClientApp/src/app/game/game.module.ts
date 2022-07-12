@@ -5,6 +5,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GameRoutingModule } from './game.routing';
 import { AppMaterialModule } from '../core/modules/app-material.module';
 import { GamePage } from './components/edit/game.page';
+import { GameListPage } from './components/list/game-list.page';
+import { ReportPage } from './components/report/report.page';
 
 @NgModule({
   imports: [
@@ -15,6 +17,6 @@ import { GamePage } from './components/edit/game.page';
     AppMaterialModule,
     AppCommonModule
   ],
-  declarations: [GamePage]
+  declarations: [GamePage, GameListPage, ReportPage]
 })
 export class GamePageModule { }
